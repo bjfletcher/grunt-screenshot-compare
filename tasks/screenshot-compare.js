@@ -38,7 +38,7 @@ module.exports = function (grunt) {
             args:['compare', '-p', 'v1', '-c', 'v2', '-s', 'screenshots/', '-o', outputType]
         }, function (error, result, code) {
             if (code !== 0) {
-                grunt.log.error('Could not run automated-screenshot-diff');
+                grunt.log.error('Could not run automated-screenshot-diff. Error name: "' + error.name + '", Error message: "' + error.message + '"');
                 done(false);
             } else if (result.stdout) {
                 grunt.log.ok(result.stdout);
